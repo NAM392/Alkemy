@@ -1,0 +1,53 @@
+﻿
+@model IEnumerable<Alkemy_1.Models.course>
+
+@{
+    ViewData["Title"] = "Courses";
+}
+
+<h2>Index</h2>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Title)
+            </th>
+
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Title)
+                </td>
+
+                <td>
+                    <a asp-action="Edit" asp-route-id="@item.courseId">Edit</a> |
+                    <a asp-action="Details" asp-route-id="@item.courseId">Details</a> |
+                    <a onclick="DeleteConfirm(@item.courseId)">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+
+<script>
+
+    function DeleteConfirm(id) {
+        if (confirm("Confirm course delete ?")) {
+            location.href = '/Course/Delete/' + id
+        }
+    }
+
+
+
+
+</script>

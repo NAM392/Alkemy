@@ -1,0 +1,58 @@
+﻿
+@model Alkemy_1.Models.course
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h2>Details</h2>
+
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Title)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.maximum_quantity_students)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Professor.FirstName) <!--/*+ " " + model.Professor.LastName*/-->
+
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Professor.LastName) <!--/*+ " " + model.Professor.LastName*/-->
+
+            </th>
+
+            <th></th>
+        </tr>
+    </thead>
+
+    <tbody>
+        <tr>
+            <th>
+                @Html.DisplayFor(model => model.Title)
+            </th>
+            <th>
+                @Html.DisplayFor(model => model.maximum_quantity_students)
+            </th>
+            <th>
+                @Html.DisplayFor(model => model.Professor.FirstName) 
+
+            </th>
+            <th>
+                @Html.DisplayFor(model => model.Professor.LastName) 
+
+            </th>
+
+            <th></th>
+        </tr>
+    </tbody>
+
+
+</table>
+
+
+

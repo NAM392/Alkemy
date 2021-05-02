@@ -1,0 +1,86 @@
+﻿
+@model Alkemy_1.DTO.Professor_Course_DTO
+
+@{
+    ViewData["Title"] = "Update";
+}
+
+<h2>Details</h2>
+
+@using (Html.BeginForm("Update", "Course", FormMethod.Post))
+{
+    <table class="table">
+        <thead>
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.Course_Complete.Title)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Course_Complete.maximum_quantity_students)
+                </th>
+
+                <th>
+                    @Html.DisplayNameFor(model => model.Course_Complete.Professor.LastName)
+
+                </th>
+
+
+                <th></th>
+            </tr>
+        </thead>
+
+        <tbody>
+            <tr>
+                <th>
+                    <div class="input-group">
+                        @Html.TextBoxFor(model => model.Course_Complete.Title,
+         new
+         {
+             @class = "form-control",
+             @placeholder = "Enter Name",
+             @requried = "required"
+         }
+
+    )
+                        <span class="input-group-addon"><span class="glyphicon glyphicon-asterisk">  </span></span>
+                    </div>
+                </th>
+                <th>
+                    <div class="input-group">
+                        @Html.TextBoxFor(model => model.Course_Complete.maximum_quantity_students,
+         new
+         {
+             @class = "form-control",
+             @placeholder = "Enter Name",
+             @requried = "required"
+         }
+
+    )
+                        <span class="input-group-addon"><span class="glyphicon glyphicon-asterisk">  </span></span>
+                    </div>
+
+
+
+                </th>
+                <th>
+                    @Html.DropDownListFor(model => model.Course_Complete.professorId,
+                     new SelectList(Model.Professors, "professorId", "LastName", Model.Course_Complete.professorId),
+                     "Select professor")
+
+
+                </th>
+                <th></th>
+            </tr>
+        </tbody>
+
+        <tr>
+            <td></td>
+            <td>
+                <input type="submit" value="Edit" />
+            </td>
+            <td></td>
+        </tr>
+
+    </table>
+    @Html.HiddenFor(model => model.Course_Complete.courseId)
+}
